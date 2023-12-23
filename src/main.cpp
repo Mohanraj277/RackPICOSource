@@ -354,30 +354,30 @@ void loop()
       lcd.print(CurrententeredNumber);
     }
   }
-  if (interruptFlag)
-  {
-    interruptFlag = false;
-    digitalWrite(slaveSelectPin, LOW);
-    for (char c : "")
-    {
-      SPI.transfer(c);
-    }
-    digitalWrite(slaveSelectPin, HIGH);
-    delay(100);
-    digitalWrite(slaveSelectPin, LOW); // Select the slave
-    // Receive string data from the slave
-    String receivedData = "";
-    while (true)
-    {
-      char c = SPI.transfer(0); // Send dummy byte to receive data
-      if (c == '\0')
-      {
-        break; // Null character indicates the end of the string
-      }
-      receivedData += c;
-    }
-    digitalWrite(slaveSelectPin, HIGH); // Deselect the slave
-    Serial.println("Received Data: " + receivedData);
-    Json_parse_fun(receivedData);
-  }
-}
+  //   if (interruptFlag)
+  //   {
+  //     interruptFlag = false;
+  //     digitalWrite(slaveSelectPin, LOW);
+  //     for (char c : "")
+  //     {
+  //       SPI.transfer(c);
+  //     }
+  //     digitalWrite(slaveSelectPin, HIGH);
+  //     delay(100);
+  //     digitalWrite(slaveSelectPin, LOW); // Select the slave
+  //     // Receive string data from the slave
+  //     String receivedData = "";
+  //     while (true)
+  //     {
+  //       char c = SPI.transfer(0); // Send dummy byte to receive data
+  //       if (c == '\0')
+  //       {
+  //         break; // Null character indicates the end of the string
+  //       }
+  //       receivedData += c;
+  //     }
+  //     digitalWrite(slaveSelectPin, HIGH); // Deselect the slave
+  //     Serial.println("Received Data: " + receivedData);
+  //     Json_parse_fun(receivedData);
+  //   }
+  // }
